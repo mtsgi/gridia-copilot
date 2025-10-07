@@ -193,10 +193,54 @@ npm run build
 # dist/ フォルダをデプロイ
 ```
 
+### GitHub Pages（自動デプロイ）
+
+このリポジトリは、`main`ブランチへのプッシュ時に自動的にGitHub Pagesにデプロイされるように設定されています。
+
+#### CI/CDワークフロー
+
+`.github/workflows/deploy.yml`により、以下の処理が自動実行されます：
+
+1. **ビルドジョブ**
+   - Node.js 18環境のセットアップ
+   - 依存関係のインストール（`npm ci`）
+   - プロダクションビルドの実行（`npm run build`）
+   - ビルド成果物のアップロード
+
+2. **デプロイジョブ**
+   - GitHub Pagesへの自動デプロイ
+   - デプロイURLの取得
+
+#### デプロイURL
+- https://mtsgi.github.io/gridia-copilot/
+
+#### 初回セットアップ
+
+GitHub Pagesを有効化するには、リポジトリで以下の設定を行います：
+
+1. Settings → Pages
+2. Build and deployment → Source: "GitHub Actions"を選択
+3. `main`ブランチへのプッシュで自動デプロイが開始されます
+
+#### ワークフローの確認
+
+- **Actions**タブでビルドとデプロイのログを確認できます
+- 各ステップの実行状態と所要時間が表示されます
+- エラーが発生した場合は詳細なログが確認できます
+
+#### セキュリティ
+
+ワークフローは以下のベストプラクティスに従っています：
+
+- 最小権限の原則（`contents: read`, `pages: write`, `id-token: write`）
+- 最新の安定版アクションを使用
+- ビルドとデプロイジョブの分離
+- 並行実行の制御
+
 ### 推奨プラットフォーム
+- **GitHub Pages**: 無料ホスティング（このリポジトリで使用中）
 - **Vercel**: 自動デプロイ
 - **Netlify**: 継続的デプロイ
-- **GitHub Pages**: 無料ホスティング
 - **Cloudflare Pages**: エッジデプロイ
 
 ## パフォーマンス監視
