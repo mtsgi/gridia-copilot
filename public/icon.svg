@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#grad1)"/>
+  
+  <!-- Grid pattern representing bookmarks -->
+  <!-- Top row -->
+  <rect x="96" y="96" width="96" height="96" rx="12" fill="white" opacity="0.9"/>
+  <rect x="208" y="96" width="96" height="96" rx="12" fill="white" opacity="0.7"/>
+  <rect x="320" y="96" width="96" height="96" rx="12" fill="white" opacity="0.9"/>
+  
+  <!-- Middle row -->
+  <rect x="96" y="208" width="96" height="96" rx="12" fill="white" opacity="0.7"/>
+  <rect x="208" y="208" width="96" height="96" rx="12" fill="white" opacity="0.95"/>
+  <rect x="320" y="208" width="96" height="96" rx="12" fill="white" opacity="0.7"/>
+  
+  <!-- Bottom row -->
+  <rect x="96" y="320" width="96" height="96" rx="12" fill="white" opacity="0.9"/>
+  <rect x="208" y="320" width="96" height="96" rx="12" fill="white" opacity="0.7"/>
+  <rect x="320" y="320" width="96" height="96" rx="12" fill="white" opacity="0.85"/>
+  
+  <!-- Star/Favorite indicator on center card -->
+  <path d="M 256 228 L 268 252 L 294 256 L 275 274 L 280 300 L 256 287 L 232 300 L 237 274 L 218 256 L 244 252 Z" fill="#FFD700" opacity="0.9"/>
+</svg>

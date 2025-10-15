@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Build scripts (icon generation)
+scripts/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

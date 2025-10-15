@@ -17,6 +17,10 @@ GridiaはSolidJSとIndexedDBを使用したモダンなブックマーク管理�
 ### データストレージ
 - **IndexedDB**: ブラウザ内永続ストレージ
 
+### PWA
+- **Service Worker**: オフラインキャッシング
+- **Web App Manifest**: A2HS対応
+
 ## プロジェクト構造
 
 ```
@@ -32,8 +36,16 @@ src/
 │   └── BookmarkForm.css     # フォームのスタイル
 ├── App.tsx                  # メインアプリケーションコンポーネント
 ├── App.css                  # アプリ全体のスタイル
-├── index.tsx               # エントリーポイント
-└── index.css               # グローバルスタイル
+├── index.tsx                # エントリーポイント (Service Worker登録含む)
+└── index.css                # グローバルスタイル
+
+public/
+├── manifest.json            # PWAマニフェスト
+├── service-worker.js        # Service Workerスクリプト
+├── icon.svg                 # ソースアイコン
+├── icon-*.png               # PWAアイコン (72x72～512x512)
+├── apple-touch-icon.png     # iOS用アイコン
+└── favicon.png              # ファビコン
 ```
 
 ## データモデル
@@ -77,6 +89,12 @@ interface Category {
 - **グリッドレイアウト**: レスポンシブなカード型表示
 - **モーダルフォーム**: スムーズなアニメーション
 - **ホバーエフェクト**: インタラクティブなフィードバック
+
+### 4. PWA機能
+- **Service Worker**: ネットワーク優先、キャッシュフォールバックの戦略
+- **オフライン対応**: キャッシュされたリソースで完全動作
+- **A2HS**: ホーム画面追加プロンプトのサポート
+- **アイコン**: 複数サイズのアイコン (72x72～512x512)
 
 ## IndexedDB構造
 
@@ -124,6 +142,7 @@ interface Category {
 2. **IndexedDB**: 非同期操作でUIブロッキングなし
 3. **CSS Transitions**: ハードウェアアクセラレーション利用
 4. **Viteの高速HMR**: 開発時の即座な反映
+5. **Service Workerキャッシング**: リソースの高速読み込み
 
 ## セキュリティ
 
@@ -137,5 +156,5 @@ interface Category {
 2. エクスポート/インポート機能
 3. ブックマークの並び替え
 4. ダークモード対応
-5. PWA化（オフライン完全対応）
+5. ~~PWA化（オフライン完全対応）~~ ✅ 実装済み
 6. クラウド同期（オプション）
