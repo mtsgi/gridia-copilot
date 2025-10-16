@@ -1,5 +1,6 @@
 import { type Component, createSignal, Show } from 'solid-js';
 import type { Bookmark } from '../types/bookmark';
+import { FiX, FiSave } from 'solid-icons/fi';
 import './BookmarkForm.css';
 
 interface BookmarkFormProps {
@@ -104,10 +105,10 @@ const BookmarkForm: Component<BookmarkFormProps> = (props) => {
 
           <div class="form-actions">
             <button type="button" class="cancel-btn" onClick={props.onCancel}>
-              キャンセル
+              <FiX /> キャンセル
             </button>
             <button type="submit" class="save-btn">
-              保存
+              <FiSave /> 保存
             </button>
           </div>
         </form>
