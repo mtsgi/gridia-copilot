@@ -3,6 +3,7 @@ import type { Bookmark } from './types/bookmark';
 import { bookmarkDB } from './services/bookmarkDB';
 import BookmarkCard from './components/BookmarkCard';
 import BookmarkForm from './components/BookmarkForm';
+import Menu from './components/Menu';
 import './App.css';
 
 const App: Component = () => {
@@ -14,6 +15,7 @@ const App: Component = () => {
   const [showForm, setShowForm] = createSignal(false);
   const [editingBookmark, setEditingBookmark] = createSignal<Bookmark | undefined>();
   const [categories, setCategories] = createSignal<string[]>([]);
+  const [showMenu, setShowMenu] = createSignal(false);
 
   onMount(async () => {
     await bookmarkDB.init();
@@ -128,8 +130,15 @@ const App: Component = () => {
   return (
     <div class="app">
       <header class="app-header">
-        <h1>Gridia</h1>
-        <p class="app-subtitle">ブックマーク管理アプリ</p>
+        <div class="header-content">
+          <button class="menu-toggle-btn" onClick={() => setShowMenu(true)} title="メニュー">
+            ☰
+          </button>
+          <div class="header-title">
+            <h1>Gridia</h1>
+            <p class="app-subtitle">ブックマーク管理アプリ</p>
+          </div>
+        </div>
       </header>
 
       <div class="app-toolbar">
@@ -201,6 +210,10 @@ const App: Component = () => {
             setEditingBookmark(undefined);
           }}
         />
+      </Show>
+
+      <Show when={showMenu()}>
+        <Menu onClose={() => setShowMenu(false)} />
       </Show>
     </div>
   );

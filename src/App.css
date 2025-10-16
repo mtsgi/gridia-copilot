@@ -9,6 +9,42 @@
   padding: 32px 24px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.menu-toggle-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-header h1 {
@@ -176,11 +212,21 @@
   .bookmarks-grid {
     grid-template-columns: 1fr;
   }
+
+  .menu-toggle-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 480px) {
   .app-header h1 {
     font-size: 32px;
+  }
+
+  .menu-toggle-btn {
+    left: 0;
   }
 }
 
