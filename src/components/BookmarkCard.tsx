@@ -1,5 +1,8 @@
 import { type Component } from 'solid-js';
 import type { Bookmark } from '../types/bookmark';
+import { FaSolidStar, FaRegularStar } from 'solid-icons/fa';
+import { BiSolidPencil } from 'solid-icons/bi';
+import { FiTrash2 } from 'solid-icons/fi';
 import './BookmarkCard.css';
 
 interface BookmarkCardProps {
@@ -40,15 +43,15 @@ const BookmarkCard: Component<BookmarkCardProps> = (props) => {
           onClick={handleToggleFavorite}
           title={props.bookmark.isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'}
         >
-          ★
+          {props.bookmark.isFavorite ? <FaSolidStar /> : <FaRegularStar />}
         </button>
       </div>
       <p class="bookmark-url">{props.bookmark.url}</p>
       <div class="bookmark-footer">
         <span class="bookmark-category">{props.bookmark.category}</span>
         <div class="bookmark-actions">
-          <button class="edit-btn" onClick={handleEdit} title="編集">✎</button>
-          <button class="delete-btn" onClick={handleDelete} title="削除">🗑</button>
+          <button class="edit-btn" onClick={handleEdit} title="編集"><BiSolidPencil /></button>
+          <button class="delete-btn" onClick={handleDelete} title="削除"><FiTrash2 /></button>
         </div>
       </div>
     </div>

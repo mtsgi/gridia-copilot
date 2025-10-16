@@ -4,6 +4,8 @@ import { bookmarkDB } from './services/bookmarkDB';
 import BookmarkCard from './components/BookmarkCard';
 import BookmarkForm from './components/BookmarkForm';
 import Menu from './components/Menu';
+import { FiMenu, FiPlus } from 'solid-icons/fi';
+import { FaSolidStar } from 'solid-icons/fa';
 import './App.css';
 
 const App: Component = () => {
@@ -132,7 +134,7 @@ const App: Component = () => {
       <header class="app-header">
         <div class="header-content">
           <button class="menu-toggle-btn" onClick={() => setShowMenu(true)} title="メニュー">
-            ☰
+            <FiMenu />
           </button>
           <div class="header-title">
             <h1>Gridia</h1>
@@ -168,11 +170,11 @@ const App: Component = () => {
             onClick={handleShowFavorites}
             title="お気に入りのみ表示"
           >
-            ★ お気に入り
+            <FaSolidStar /> お気に入り
           </button>
 
           <button class="add-btn" onClick={handleAddBookmark}>
-            + 追加
+            <FiPlus /> 追加
           </button>
         </div>
       </div>

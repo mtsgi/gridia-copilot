@@ -18,6 +18,7 @@
 - **ビルドツール**: Vite
 - **データベース**: IndexedDB
 - **言語**: TypeScript
+- **アイコン**: solid-icons
 
 ## セットアップ
 
@@ -61,6 +62,28 @@ Gridiaは**Progressive Web App (PWA)** として動作します：
 1. 共有ボタン（□↑）をタップ
 2. 「ホーム画面に追加」を選択
 3. アイコン名を確認して「追加」をタップ
+
+## アイコンライブラリ
+
+このプロジェクトでは、[solid-icons](https://github.com/solid-icons/solid-icons)を使用してUIの視認性を向上させています。
+
+### 使用しているアイコン
+
+- **Font Awesome**: お気に入り（星）アイコン
+- **Feather Icons**: メニュー、追加、保存、キャンセル、ゴミ箱アイコン
+- **BoxIcons**: 編集（鉛筆）アイコン
+
+### アイコンの追加方法
+
+新しいアイコンを追加する場合は、以下のように使用できます：
+
+```tsx
+import { FiHeart } from 'solid-icons/fi';
+
+<button><FiHeart /> いいね</button>
+```
+
+利用可能なアイコンの一覧は[solid-iconsのドキュメント](https://github.com/solid-icons/solid-icons)を参照してください。
 
 ## ライセンス
 
