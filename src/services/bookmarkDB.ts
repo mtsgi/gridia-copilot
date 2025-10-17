@@ -6,10 +6,15 @@ const STORE_NAME = 'bookmarks';
 
 export class BookmarkDB {
   private db: IDBDatabase | null = null;
+  private dbName: string;
+
+  constructor(dbName: string = DB_NAME) {
+    this.dbName = dbName;
+  }
 
   async init(): Promise<void> {
     return new Promise((resolve, reject) => {
-      const request = indexedDB.open(DB_NAME, DB_VERSION);
+      const request = indexedDB.open(this.dbName, DB_VERSION);
 
       request.onerror = () => reject(request.error);
       request.onsuccess = () => {
