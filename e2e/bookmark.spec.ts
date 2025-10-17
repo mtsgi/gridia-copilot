@@ -3,18 +3,26 @@ import { test, expect } from '@playwright/test';
 test.describe('ブックマーク管理機能', () => {
   test.beforeEach(async ({ page }) => {
     // アプリにアクセス
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     
     // IndexedDBをクリア（新鮮な状態でテスト開始）
     await page.evaluate(() => {
       return new Promise<void>((resolve) => {
-        const req = indexedDB.deleteDatabase('GridiaDB');
-        req.onsuccess = () => resolve();
-        req.onerror = () => resolve();
+        try {
+          const req = indexedDB.deleteDatabase('GridiaDB');
+          req.onsuccess = () => resolve();
+          req.onerror = () => resolve();
+          req.onblocked = () => resolve();
+        } catch (error) {
+          // IndexedDBが利用できない場合もエラーにしない
+          resolve();
+        }
       });
     });
     
-    await page.reload();
+    await page.reload({ waitUntil: 'networkidle' });
+    // アプリケーションが完全にロードされるまで待つ
+    await page.waitForSelector('h1', { state: 'visible', timeout: 10000 });
   });
 
   test('アプリケーションが正しく表示される', async ({ page }) => {

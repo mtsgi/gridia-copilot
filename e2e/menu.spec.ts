@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.describe('メニュー機能', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
+    // アプリケーションが完全にロードされるまで待つ
+    await page.waitForSelector('h1', { state: 'visible', timeout: 10000 });
   });
 
   test('メニューボタンをクリックするとメニューが開く', async ({ page }) => {
