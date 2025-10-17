@@ -4,7 +4,7 @@ const DB_NAME = 'GridiaDB';
 const DB_VERSION = 1;
 const STORE_NAME = 'bookmarks';
 
-class BookmarkDB {
+export class BookmarkDB {
   private db: IDBDatabase | null = null;
 
   async init(): Promise<void> {
