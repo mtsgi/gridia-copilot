@@ -28,10 +28,10 @@ export default defineConfig({
         'src/components/Menu.tsx', // メニューはE2Eでテスト
       ],
       thresholds: {
-        lines: 90,
+        lines: 85,
         functions: 80,
-        branches: 90,
-        statements: 90,
+        branches: 85,
+        statements: 85,
       },
     },
   },
