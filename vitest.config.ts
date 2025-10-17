@@ -7,6 +7,8 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
+    include: ['src/**/*.test.{ts,tsx}'],
+    exclude: ['node_modules', 'dist', 'e2e'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
@@ -20,12 +22,16 @@ export default defineConfig({
         '**/*.css',
         'src/index.tsx', // エントリーポイントはE2Eでテスト
         'src/data/', // 静的データは除外
+        'src/types/', // 型定義ファイルは除外
+        'e2e/', // E2Eテストディレクトリを除外
+        'src/App.tsx', // メインアプリケーションはE2Eでテスト
+        'src/components/Menu.tsx', // メニューはE2Eでテスト
       ],
       thresholds: {
-        lines: 70,
-        functions: 70,
-        branches: 70,
-        statements: 70,
+        lines: 90,
+        functions: 80,
+        branches: 90,
+        statements: 90,
       },
     },
   },
