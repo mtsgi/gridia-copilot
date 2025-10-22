@@ -9,6 +9,8 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
     exclude: ['node_modules', 'dist', 'e2e'],
+    // 環境の再利用を無効化してクリーンな状態で各テストファイルを実行
+    isolate: true,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
