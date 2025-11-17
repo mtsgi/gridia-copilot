@@ -6,7 +6,10 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['./src/test/setup.ts'],
+    setupFiles: [
+      './src/test/setup.ts',
+      './src/test/jest-dom-setup.ts', // jest-domを別ファイルで後から読み込む
+    ],
     include: ['src/**/*.test.{ts,tsx}'],
     exclude: ['node_modules', 'dist', 'e2e'],
     // 環境の再利用を無効化してクリーンな状態で各テストファイルを実行
