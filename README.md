@@ -34,6 +34,53 @@ npm run build
 
 # ビルドのプレビュー
 npm run preview
+
+# テスト実行
+npm test
+
+# テストのカバレッジレポート
+npm run test:coverage
+
+# E2Eテスト実行
+npm run test:e2e
+```
+
+## テスト
+
+### ユニットテスト
+
+- **フレームワーク**: Vitest + @solidjs/testing-library
+- **実装内容**:
+  - `bookmarkDB.ts`: IndexedDB操作のテスト（15テスト）
+  - `BookmarkCard.tsx`: ブックマークカード表示・操作のテスト（7テスト）
+  - `BookmarkForm.tsx`: フォーム入力・バリデーションのテスト（10テスト）
+
+テスト実行:
+```bash
+# ユニットテストを実行
+npm test
+
+# カバレッジレポート付きで実行
+npm run test:coverage
+```
+
+### E2Eテスト
+
+- **フレームワーク**: Playwright
+- **実装内容**:
+  - ブックマークの追加・編集・削除フロー
+  - 検索機能のテスト
+  - カテゴリフィルタリングのテスト
+  - お気に入り機能のテスト
+  - メニュー機能のテスト
+
+E2Eテスト実行:
+```bash
+# E2Eテストを実行
+npm run test:e2e
+
+# UIモードで実行
+npm run test:e2e:ui
 ```
 
 ## 使い方
